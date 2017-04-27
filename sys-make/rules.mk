@@ -30,13 +30,13 @@ $(OUTS)/%.o: %.c
 #	@$(CC) $(CFLAG) $(CC_DEFS) -I$(INC_PATH) -MM $< > $*.d 
 #	@$(CC) $(CFLAG) $(CC_DEFS) -I$(INC_PATH) -MM -MF  $(patsubst %.o,%.d,$@) -o $@ $< 
 #	@$(CC) $(CFLAG) $(CC_DEFS) -I$(INC_PATH) -MMD -MF $(patsubst %.o,%.d,$@) -MT $@ -o $@ $< 
-	$(CC) $(CFLAG) $(CC_DEFS) -I$(INC_PATH) -MMD -c $< -o $@
+	@$(CC) $(CFLAG) $(CC_DEFS) -I$(INC_PATH) -MMD -c $< -o $@
 	@echo "cc $(notdir $<)"
 
 link:
 	@echo "Link executable"
 #	@echo $(FULL_O)
-	gcc -ggdb -Wall -fprofile-arcs -ftest-coverage $(FULL_O) -Wl,-Map=$(OUTPUT_DIR)/test.map -o $(OUTPUT_DIR)/test
+	@gcc -ggdb -Wall -fprofile-arcs -ftest-coverage $(FULL_O) -Wl,-Map=$(OUTPUT_DIR)/test.map -o $(OUTPUT_DIR)/test
 
 clean:
 	-@rm -r $(OUTS)
