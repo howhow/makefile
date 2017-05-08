@@ -9,9 +9,12 @@
 #                - init commit
 #
 
+# define compiler
 CC :=
 CC += gcc
 
+#define compiler flag
+# TODO:: detect debug and release build
 CFLAG :=
 CFLAG += -ggdb -Wall
 CFLAG += -fprofile-arcs -ftest-coverage

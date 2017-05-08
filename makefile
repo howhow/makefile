@@ -9,13 +9,16 @@
 #                - init commit
 #
 
+# define useful directory path
 TOP_DIR = $(PWD)
 MKFILE_DIR = $(TOP_DIR)/sys-make
 CFG_DIR = $(MKFILE_DIR)/config
 OUTPUT_DIR = $(TOP_DIR)/output
 
+# include build configuration
 include $(CFG_DIR)/build.config
 
+# export var, which need be known by sub-makefile
 export TOP_DIR MKFILE_DIR OUTPUT_DIR
 
 all: obj link
