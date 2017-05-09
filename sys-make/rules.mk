@@ -24,7 +24,7 @@ TARGET_NAME = test_makefile
 # workaround for link, need all objs at once
 FULL_O=$(shell find $(OUTS) -name "*.o")
 
-.PHONY: link clean verbose
+.PHONY: link clean check 
 
 # generate lib file
 $(OUTS)/$(MOD_LIB): $(OBJS)
@@ -44,7 +44,7 @@ link:
 	@echo "Link executable: $(OUTPUT_DIR)/$(TARGET_NAME)"
 	@gcc -ggdb -Wall -fprofile-arcs -ftest-coverage $(FULL_O) -Wl,-Map=$(OUTPUT_DIR)/$(TARGET_NAME).map -o $(OUTPUT_DIR)/$(TARGET_NAME)
 
-verbose:
+check:
 	@echo "mod: $(MODULE)"
 	@echo "libs: $(MOD_LIB)"
 	@echo "src_path: $(SRC_PATH)"
