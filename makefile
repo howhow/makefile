@@ -15,11 +15,17 @@ MKFILE_DIR = $(TOP_DIR)/sys-make
 CFG_DIR = $(MKFILE_DIR)/config
 OUTPUT_DIR = $(TOP_DIR)/output
 
+# define useful prefix/postfix
+LIB_PREFIX = lib
+LIB_POSTFIX = a
+
 # include build configuration
+# FEATURE define in it
 include $(CFG_DIR)/build.config
 
 # export var, which need be known by sub-makefile
 export TOP_DIR MKFILE_DIR OUTPUT_DIR
+export LIB_PREFIX LIB_POSTFIX
 
 all: obj link
 
@@ -28,9 +34,19 @@ obj:
 	@$(MAKE) -f $(TOP_DIR)/dir2/dir2.mk
 	@$(MAKE) -f $(TOP_DIR)/dir3/dir3.mk
 
+# link workaround
+# pass link to rules.mk to trigger link
 link:
 	@$(MAKE) -f $(MKFILE_DIR)/rules.mk link
 
+# verbose
+# to display each module build info
+verbose:
+	@$(MAKE) -f $(TOP_DIR)/dir1/dir1.mk verbose
+	@$(MAKE) -f $(TOP_DIR)/dir2/dir2.mk verbose
+	@$(MAKE) -f $(TOP_DIR)/dir3/dir3.mk verbose
+
+# remove ouyput
 clean:
 	@$(MAKE) -f $(TOP_DIR)/dir1/dir1.mk clean
 	@$(MAKE) -f $(TOP_DIR)/dir2/dir2.mk clean
