@@ -39,12 +39,12 @@ obj:
 link:
 	@$(MAKE) -f $(MKFILE_DIR)/rules.mk link
 
-# verbose
+# check
 # to display each module build info
-verbose:
-	@$(MAKE) -f $(TOP_DIR)/dir1/dir1.mk verbose
-	@$(MAKE) -f $(TOP_DIR)/dir2/dir2.mk verbose
-	@$(MAKE) -f $(TOP_DIR)/dir3/dir3.mk verbose
+check:
+	@$(MAKE) -f $(TOP_DIR)/dir1/dir1.mk check
+	@$(MAKE) -f $(TOP_DIR)/dir2/dir2.mk check
+	@$(MAKE) -f $(TOP_DIR)/dir3/dir3.mk check
 
 # remove ouyput
 clean:
