@@ -16,6 +16,9 @@ CC += gcc
 #define compiler flag
 # TODO:: detect debug and release build
 CFLAG :=
-CFLAG += -ggdb -Wall
+ifeq '$(DEBUG)' 'YES'
+	CFLAG += -ggdb -Wall
+endif
+
 CFLAG += -fprofile-arcs -ftest-coverage
 
