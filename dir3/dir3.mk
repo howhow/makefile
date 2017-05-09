@@ -2,6 +2,13 @@ MODULE = dir3
 
 MOD_LIB = lib$(MODULE).a
 
+CC_DEFS :=
+ifeq '$(filter FEATURE_3, $(FEATURE))' 'FEATURE_3'
+	CC_DEFS += dir3_DEF_1
+	CC_DEFS += dir3_DEF_2
+	CC_DEFS += dir3_DEF_3
+endif
+
 SRC_FILES =
 SRC_FILES += a3.c
 SRC_FILES += b3.c
