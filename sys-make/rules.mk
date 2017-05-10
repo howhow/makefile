@@ -3,12 +3,12 @@
 #    @File:     rules.mk
 #    @Author:   How.Chen
 #    @Version:  2.0
-#    @Date:		9h/May/2017
-#    @Note:	
-#    			- V2.0
-#    			- add comments
-#				- add debug print
-#				
+#    @Date:     9h/May/2017
+#    @Note:
+#               - V2.0
+#               - add comments
+#               - add debug print
+#
 
 # define general path and output for each sub module
 OUTS = $(OUTPUT_DIR)/$(MODULE)
