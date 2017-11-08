@@ -28,7 +28,7 @@ FULL_O=$(shell find $(OUTS) -name "*.o")
 
 # generate lib file
 $(OUTS)/$(MOD_LIB): $(OBJS)
-	@ar cr $@ $^
+	@ar cr $@ $?
 	@echo "ar $(notdir $@)"
 
 # compile from source to objs include for dependence
