@@ -41,7 +41,7 @@ $(OUTS)/%.o: %.c
 # workaround for link
 # $(CFLAG) does not exported
 link:
-	@echo "Link executable: $(OUTPUT_DIR)/$(TARGET_NAME)"
+	@echo "Link executable: $(TARGET_NAME)"
 	@gcc -ggdb -Wall -fprofile-arcs -ftest-coverage $(FULL_O) -Wl,-Map=$(OUTPUT_DIR)/$(TARGET_NAME).map -o $(OUTPUT_DIR)/$(TARGET_NAME)
 
 check:
@@ -61,7 +61,7 @@ check:
 
 # remove output for each sub module
 clean:
-	-@rm -r $(OUTS)
+	-@rm -rf $(OUTS)
 
 # include dependence if has
 -include $(DEPS)

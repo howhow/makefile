@@ -51,5 +51,5 @@ clean:
 	@$(MAKE) -f $(TOP_DIR)/dir1/dir1.mk clean
 	@$(MAKE) -f $(TOP_DIR)/dir2/dir2.mk clean
 	@$(MAKE) -f $(TOP_DIR)/dir3/dir3.mk clean
-	-rm -r $(OUTPUT_DIR)
+	-rm -rf $(OUTPUT_DIR)
 
