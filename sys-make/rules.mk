@@ -42,6 +42,7 @@ $(OUTS)/%.o: %.c
 # $(CFLAG) does not exported
 link:
 	@echo "Link executable: $(TARGET_NAME)"
+	@echo "full objs: $(FULL_O)"
 	@gcc -ggdb -Wall -fprofile-arcs -ftest-coverage $(FULL_O) -Wl,-Map=$(OUTPUT_DIR)/$(TARGET_NAME).map -o $(OUTPUT_DIR)/$(TARGET_NAME)
 
 check:
@@ -58,6 +59,8 @@ check:
 	@echo "enabled features: $(FEATURE)"
 	@echo "cc defines: $(CC_DEFINE)"
 	@echo "cc include: $(CC_INC_PATH)"
+	@echo "full objs: $(FULL_O)"
+	@echo ""
 
 # remove output for each sub module
 clean:
