@@ -11,7 +11,7 @@
 4. auto dependence check
 
 ## How to use
-make
+`make` or `make DEBUG=YES`
 
 ## Known issue
 1. link part should be improved
