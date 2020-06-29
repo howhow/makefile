@@ -18,7 +18,6 @@ CC += gcc
 CFLAG :=
 ifeq '$(DEBUG)' 'YES'
 	CFLAG += -ggdb -Wall
+	CFLAG += -fprofile-arcs -ftest-coverage
 endif
-
-CFLAG += -fprofile-arcs -ftest-coverage
 

@@ -43,7 +43,11 @@ $(OUTS)/%.o: %.c
 link:
 	@echo "Link executable: $(TARGET_NAME)"
 	@echo "full objs: $(FULL_O)"
+ifeq '$(DEBUG)' 'YES'
 	@gcc -ggdb -Wall -fprofile-arcs -ftest-coverage $(FULL_O) -Wl,-Map=$(OUTPUT_DIR)/$(TARGET_NAME).map -o $(OUTPUT_DIR)/$(TARGET_NAME)
+else
+	@gcc $(FULL_O) -Wl,-Map=$(OUTPUT_DIR)/$(TARGET_NAME).map -o $(OUTPUT_DIR)/$(TARGET_NAME)
+endif
 
 check:
 	@echo "mod: $(MODULE)"
