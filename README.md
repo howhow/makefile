@@ -10,5 +10,8 @@
 3. manage each component individually
 4. auto dependence check
 
+## How to use
+make
+
 ## Known issue
 1. link part should be improved
