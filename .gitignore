@@ -32,3 +32,6 @@
 *.dSYM/
 *.su
 /output/*
+
+# swp file
+*.swp
