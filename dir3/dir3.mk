@@ -1,6 +1,6 @@
 MODULE = dir3
 
-MOD_LIB = lib$(MODULE).a
+MOD_LIB = $(LIB_PREFIX)$(MODULE).$(LIB_SUFFIX)
 
 CC_DEFS :=
 ifeq '$(filter FEATURE_3, $(FEATURE))' 'FEATURE_3'
@@ -23,6 +23,7 @@ SRC_PATH += $(TOP_DIR)/$(MODULE)/sub_dir3
 
 vpath %.c $(SRC_PATH)
 
+include $(MKFILE_DIR)/tools.mk
 include $(MKFILE_DIR)/gcc.mk
 include $(MKFILE_DIR)/rules.mk
 

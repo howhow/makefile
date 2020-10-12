@@ -1,13 +1,11 @@
 # main makefile
 #
-#    @File:      makefile
-#    @Author:    How.Chen
-#    @Version:   1.0
-#    @Date:      27h/April/2017
-#    @Note:
-#                -V1.0
-#                - init commit
-#
+#	@File:      makefile
+#	@Author:    How.Chen
+#	@History:
+#	VER		DATE			Change
+#	1.0		27/Apr/2017		init commit
+#	1.1		12/Oct/2020		change suffix name andadd tools.mk
 
 # define useful directory path
 TOP_DIR = $(PWD)
@@ -17,15 +15,11 @@ OUTPUT_DIR = $(TOP_DIR)/output
 
 # define useful prefix/postfix
 LIB_PREFIX = lib
-LIB_POSTFIX = a
-
-# include build configuration
-# FEATURE define in it
-include $(CFG_DIR)/build.config
+LIB_SUFFIX = a
 
 # export var, which need be known by sub-makefile
 export TOP_DIR MKFILE_DIR OUTPUT_DIR
-export LIB_PREFIX LIB_POSTFIX
+export LIB_PREFIX LIB_SUFFIX
 
 all: obj link
 
@@ -51,5 +45,11 @@ clean:
 	@$(MAKE) -f $(TOP_DIR)/dir1/dir1.mk clean
 	@$(MAKE) -f $(TOP_DIR)/dir2/dir2.mk clean
 	@$(MAKE) -f $(TOP_DIR)/dir3/dir3.mk clean
-	-rm -rf $(OUTPUT_DIR)
+	-$(RM) -rf $(OUTPUT_DIR)
+
+# include build configuration
+# FEATURE define in it
+include $(MKFILE_DIR)/tools.mk
+include $(CFG_DIR)/build.config
+include $(CFG_DIR)/version.config
 

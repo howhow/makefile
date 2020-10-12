@@ -1,19 +1,17 @@
 # Sub-folder makefile
 #
-#    @File:      dir1.mk
-#    @Author:    How.Chen
-#    @Version:   1.0
-#    @Date:      27h/April/2017
-#    @Note:
-#                -V1.0
-#                - init commit
-#
+#	@File:      dir1.mk
+#	@Author:    How.Chen
+#	@History:
+#	VER		DATE			Change
+#	1.0		27/May/2017		init version
+#	1.1		12/Oct/2020		update suffix
 
 # define module name for compile use
 MODULE = dir1
 
 # define expected lib
-MOD_LIB = $(LIB_PREFIX)$(MODULE).$(LIB_POSTFIX)
+MOD_LIB = $(LIB_PREFIX)$(MODULE).$(LIB_SUFFIX)
 
 
 CC_DEFS :=
@@ -44,7 +42,8 @@ SRC_PATH += $(TOP_DIR)/$(MODULE)/sub_dir1
 
 vpath %.c $(SRC_PATH)
 
-# use general compiler and compile rules
+# use general tools setting, compiler and compile rules
+include $(MKFILE_DIR)/tools.mk
 include $(MKFILE_DIR)/gcc.mk
 include $(MKFILE_DIR)/rules.mk
 
